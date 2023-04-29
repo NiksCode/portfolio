@@ -17,8 +17,15 @@ model Project {
   image   String
   code    String
   demo    String
+  tools    Tool[]
 }
 
+model Tool {
+  id      Int    @id @default(autoincrement())
+  name String
+  project Project? @relation(fields: [projectId], references: [id])
+  projectId Int
+}
 
 model User {
   id    Int     @id @default(autoincrement())

@@ -2,11 +2,14 @@ import { BsCode } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { TbScreenShare } from "react-icons/tb";
 import { getProjects } from "../../lib/queries";
+import StackItem from "./stackItem";
 
 export default async function Projects() {
-  const allProjects = await getProjects();
+  const projects = await getProjects();
 
-  const projects = [
+  console.log(projects);
+
+  const dummyProjects = [
     {
       id: 1,
       title: "HUMAN ART",
@@ -180,11 +183,11 @@ export default async function Projects() {
                   <div className='text-2xl uppercase text-brand font-bold py-2'>
                     {title}
                   </div>
-                  {/* <div className='flex flex-wrap gap-2 dark:text-white transition duration-500'>
+                  <div className='flex flex-wrap gap-2 transition duration-500'>
                     {tools.map((item, i) => {
-                      return <StackItem key={i}>{item}</StackItem>;
+                      return <StackItem key={i}>{item.name}</StackItem>;
                     })}
-                  </div> */}
+                  </div>
                   <div className='text-sm py-4 transition duration-500 text-justify'>
                     {content}
                   </div>
