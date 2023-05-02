@@ -1,13 +1,14 @@
-import { BsCode } from "react-icons/bs";
+"use client";
+import { useSession } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
-import { TbScreenShare } from "react-icons/tb";
-import { getProjects } from "../../lib/queries";
-import StackItem from "./stackItem";
 
 export default async function Projects() {
-  const projects = await getProjects();
+  // const projects = await getProjects();
 
-  console.log(projects);
+  //const session = await getServerSession(authOptions);
+  const { data: sessionData } = useSession();
+
+  console.log("sessionData", sessionData);
 
   const dummyProjects = [
     {
@@ -163,7 +164,7 @@ export default async function Projects() {
           </div>
         </a>
       </div>
-      <div className='py-7 flex flex-col gap-5 justify-around items-start md:flex-row md:flex-wrap'>
+      {/* <div className='py-7 flex flex-col gap-5 justify-around items-start md:flex-row md:flex-wrap'>
         {projects
           .reverse()
           .map(({ id, title, content, image, code, demo, tools }) => {
@@ -213,7 +214,7 @@ export default async function Projects() {
               </div>
             );
           })}
-      </div>
+      </div> */}
     </div>
   );
 }
