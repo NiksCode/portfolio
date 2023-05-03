@@ -8,7 +8,7 @@ export default async function Projects() {
   //const session = await getServerSession(authOptions);
   const { data: sessionData } = useSession();
 
-  console.log("sessionData", sessionData);
+  // console.log("sessionData", sessionData);
 
   const dummyProjects = [
     {
