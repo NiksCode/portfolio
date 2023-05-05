@@ -1,6 +1,5 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import Image from "next/image";
 import { BsCode } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { TbScreenShare } from "react-icons/tb";
@@ -18,11 +17,6 @@ export default async function Projects() {
       <AuthButton />
       {session && (
         <>
-          <Image
-            height={500}
-            width={500}
-            src={session?.user?.image.replaceAll("s96-c", "s400-c")}
-          />
           <div className='lg:flex lg:items-center lg:justify-between'>
             <div className='font-extrabold text-4xl text-brand pt-8 '>
               Latest Projects
